@@ -1,4 +1,4 @@
-<![CDATA[# CLAUDE.md — NovaMail Project Memory
+# CLAUDE.md — NovaMail Project Memory
 
 > This file is the persistent memory for Claude Code (Claude Opus 4.7). It defines the project's identity, architecture decisions, coding standards, agent orchestration, and debugging methodology. Claude reads this file at the start of every session to maintain continuity across the entire development lifecycle.
 

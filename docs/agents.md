@@ -1,9 +1,3 @@
-<![CDATA[# NovaMail — Agents, Skills, Hooks & Plugins Registry
-
-> Multi-agent orchestration via Claude Code (Claude Opus 4.7) · Agent OS Methodology
-
----
-
 ## Agent Registry
 
 NovaMail was built using a **multi-agent workflow** orchestrated through Claude Code CLI. A single Claude Opus 4.7 instance assumed specialized agent roles based on the current development phase, maintaining bounded responsibilities and well-defined handoff points.

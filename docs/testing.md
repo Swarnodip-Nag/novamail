@@ -1,9 +1,3 @@
-<![CDATA[# NovaMail — Testing Documentation
-
-> Testing strategy designed and executed by `testing-agent` via Claude Code (Claude Opus 4.7)
-
----
-
 ## Test Strategy
 
 NovaMail follows a **pragmatic test pyramid**: unit tests for core algorithms, E2E smoke tests for critical user flows, and compile-time type safety as the broadest safety net.

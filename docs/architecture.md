@@ -1,7 +1,3 @@
-<![CDATA[# NovaMail — One-Page Architecture Document
-
-> AI-first universal email client · Built with Claude Code (Claude Opus 4.7)
-
 ## System Architecture
 
 ```

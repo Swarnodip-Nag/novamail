@@ -1,4 +1,3 @@
-<![CDATA[<div align="center">
 
 # ✉️ NovaMail
 
@@ -13,7 +12,7 @@ A production-grade Progressive Web App built entirely with **Claude Code CLI**, 
 
 <br />
 
-<img src="docs/assets/novamail-hero.png" alt="NovaMail Screenshot" width="720" />
+<img src="public/assets/login.png" alt="NovaMail Screenshot" width="720" />
 
 </div>
 

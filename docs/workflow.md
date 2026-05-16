@@ -1,9 +1,3 @@
-<![CDATA[# NovaMail — Development Workflow
-
-> End-to-end build narrative using Claude Code CLI (Claude Opus 4.7)
-
----
-
 ## How NovaMail Was Built
 
 NovaMail was developed entirely through **Claude Code CLI** using the **Agent OS methodology** — a structured multi-agent workflow where a single Claude Opus 4.7 instance assumes specialized roles (planner, frontend, backend, auth, AI, testing, deployment) based on the current development phase. Each agent operates within bounded responsibilities, communicates through typed contracts, and has explicit entry/exit checkpoints.
