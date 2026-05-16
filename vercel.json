@@ -1,0 +1,86 @@
+<![CDATA[{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "name": "novamail",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/public",
+  "framework": null,
+  "functions": {
+    "dist/boot.js": {
+      "runtime": "@vercel/node@3",
+      "maxDuration": 30,
+      "memory": 512
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/dist/boot.js"
+    },
+    {
+      "src": "/manifest.webmanifest",
+      "dest": "/dist/public/manifest.webmanifest",
+      "headers": {
+        "Content-Type": "application/manifest+json",
+        "Cache-Control": "public, max-age=86400"
+      }
+    },
+    {
+      "src": "/sw.js",
+      "dest": "/dist/public/sw.js",
+      "headers": {
+        "Content-Type": "application/javascript",
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/dist/public/assets/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/(icon-.*\\.png|favicon\\.svg)",
+      "dest": "/dist/public/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=604800"
+      }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/public/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "file:./data/novamail.db",
+    "NODE_ENV": "production"
+  }
+}
+]]>

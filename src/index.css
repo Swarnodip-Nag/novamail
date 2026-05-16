@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* ─── NovaMail Login Page ─────────────────────────────────────── */
+
+.nm-login-bg {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.nm-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+  pointer-events: none;
+  animation: nm-float 8s ease-in-out infinite;
+}
+.nm-orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, #6366f1, transparent);
+  top: -15%; left: -10%;
+  animation-delay: 0s;
+}
+.nm-orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #8b5cf6, transparent);
+  bottom: -10%; right: -5%;
+  animation-delay: 3s;
+}
+.nm-orb-3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, #06b6d4, transparent);
+  top: 30%; left: 40%;
+  animation-delay: 6s;
+}
+
+@keyframes nm-float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+.nm-login-container {
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  min-height: 560px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+  margin: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Left Branding Panel ─── */
+.nm-brand-panel {
+  flex: 0 0 340px;
+  background: linear-gradient(160deg, rgba(99,102,241,0.25) 0%, rgba(139,92,246,0.15) 100%);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.nm-brand-logo {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(99,102,241,0.4);
+}
+.nm-brand-icon {
+  color: white;
+  width: 28px; height: 28px;
+}
+.nm-brand-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+.nm-brand-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+
+.nm-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 8px;
+}
+.nm-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.nm-feature-icon {
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a5b4fc;
+}
+.nm-feature-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+}
+.nm-feature-desc {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 2px;
+}
+
+/* ─── Right Form Panel ─── */
+.nm-form-panel {
+  flex: 1;
+  background: rgba(10, 8, 30, 0.7);
+  backdrop-filter: blur(24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 48px;
+}
+
+.nm-form-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.nm-form-header {
+  margin-bottom: 28px;
+}
+.nm-form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+.nm-form-subtitle {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 4px;
+}
+
+/* ─── Form Fields ─── */
+.nm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nm-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.3px;
+}
+.nm-label-optional {
+  color: rgba(255,255,255,0.3);
+  font-weight: 400;
+}
+
+.nm-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nm-input-icon {
+  position: absolute;
+  left: 12px;
+  color: rgba(255,255,255,0.35);
+  pointer-events: none;
+  flex-shrink: 0;
+}
+.nm-input {
+  width: 100%;
+  height: 42px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.875rem;
+  padding: 0 12px 0 36px;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+.nm-input-noicon {
+  padding-left: 12px;
+}
+.nm-input-with-action {
+  padding-right: 40px;
+}
+.nm-input::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+.nm-input:focus {
+  border-color: rgba(99,102,241,0.7);
+  background: rgba(255,255,255,0.09);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+
+.nm-input-action {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.35);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+.nm-input-action:hover { color: rgba(255,255,255,0.7); }
+
+.nm-help-text {
+  font-size: 0.72rem;
+  color: rgba(165,180,252,0.7);
+  line-height: 1.5;
+  padding: 6px 8px;
+  background: rgba(99,102,241,0.08);
+  border-radius: 6px;
+  border-left: 2px solid rgba(99,102,241,0.4);
+}
+
+/* ─── Auto-detected badge ─── */
+.nm-detected {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: rgba(16,185,129,0.08);
+  border: 1px solid rgba(16,185,129,0.2);
+  border-radius: 8px;
+}
+.nm-detected-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #34d399;
+  background: rgba(16,185,129,0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.nm-detected-text {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  font-family: monospace;
+}
+
+/* ─── Advanced toggle ─── */
+.nm-advanced-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 0;
+  transition: color 0.15s;
+  align-self: flex-start;
+}
+.nm-advanced-toggle:hover { color: rgba(255,255,255,0.7); }
+
+.nm-advanced {
+  padding: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+}
+.nm-advanced-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Provider badge on email input */
+.nm-provider-badge {
+  position: absolute;
+  right: 10px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #a5b4fc;
+  background: rgba(99,102,241,0.15);
+  border: 1px solid rgba(99,102,241,0.25);
+  padding: 2px 7px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+/* Note inside advanced settings */
+.nm-advanced-note {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* ─── Error ─── */
+.nm-error {
+  padding: 10px 14px;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: #fca5a5;
+  line-height: 1.5;
+}
+
+/* ─── Submit button ─── */
+.nm-submit {
+  width: 100%;
+  height: 44px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 16px rgba(99,102,241,0.35);
+  margin-top: 4px;
+}
+.nm-submit:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(99,102,241,0.45);
+}
+.nm-submit:active:not(:disabled) { transform: translateY(0); }
+.nm-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.nm-submit-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nm-spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: nm-spin 0.7s linear infinite;
+  display: inline-block;
+}
+@keyframes nm-spin { to { transform: rotate(360deg); } }
+
+/* ─── Footer note ─── */
+.nm-form-footer {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 700px) {
+  .nm-login-container { flex-direction: column; min-height: unset; margin: 16px; border-radius: 18px; }
+  .nm-brand-panel { flex: none; padding: 28px 24px; gap: 16px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .nm-feature-list { display: none; }
+  .nm-brand-subtitle { display: none; }
+  .nm-form-panel { padding: 28px 24px; }
+  .nm-advanced-grid { grid-template-columns: 1fr; }
+}

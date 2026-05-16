@@ -1,0 +1,90 @@
+<![CDATA[# ─── Dependencies ────────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ─── Build Outputs ───────────────────────────────────────────────
+dist/
+dist-ssr/
+build/
+*.local
+
+# ─── Environment Variables ───────────────────────────────────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ─── Database ────────────────────────────────────────────────────
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+data/
+
+# ─── Database Migrations (auto-generated) ────────────────────────
+db/migrations/*.sql
+
+# ─── TypeScript ──────────────────────────────────────────────────
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# ─── Testing ─────────────────────────────────────────────────────
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+blob-report/
+
+# ─── Logs ────────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ─── Editor & IDE ────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+*~
+
+# ─── OS Generated ───────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ─── PWA / Service Worker (dev artifacts) ────────────────────────
+dev-dist/
+sw.js
+workbox-*.js
+
+# ─── Vercel ──────────────────────────────────────────────────────
+.vercel/
+
+# ─── Misc ────────────────────────────────────────────────────────
+*.map
+.cache/
+.temp/
+.tmp/
+]]>
+
+%AppData%
