@@ -7,7 +7,6 @@
   "framework": null,
   "functions": {
     "dist/boot.js": {
-      "runtime": "@vercel/node@3",
       "maxDuration": 30,
       "memory": 512
     }
