@@ -13,14 +13,22 @@ let database: Database.Database;
 
 export function getDb() {
   if (!instance) {
-    // Resolve the database path robustly across platforms
-    const rawPath = env.databaseUrl.replace(/^file:/, "");
-    const dbPath = path.resolve(process.cwd(), rawPath);
+    let dbPath: string;
 
-    // Ensure the data directory exists
-    const dbDir = path.dirname(dbPath);
-    if (!fs.existsSync(dbDir)) {
-      fs.mkdirSync(dbDir, { recursive: true });
+    if (process.env.VERCEL) {
+      // Vercel serverless: filesystem is read-only except /tmp
+      // Use /tmp for SQLite — data is ephemeral per cold start
+      dbPath = "/tmp/novamail.db";
+    } else {
+      // Local / self-hosted: resolve from DATABASE_URL
+      const rawPath = env.databaseUrl.replace(/^file:/, "");
+      dbPath = path.resolve(process.cwd(), rawPath);
+
+      // Ensure the data directory exists
+      const dbDir = path.dirname(dbPath);
+      if (!fs.existsSync(dbDir)) {
+        fs.mkdirSync(dbDir, { recursive: true });
+      }
     }
 
     console.log("[DB] Opening database at:", dbPath);
