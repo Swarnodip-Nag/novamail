@@ -1,5 +1,5 @@
 import { createTransport, type Transporter } from "nodemailer";
-import type { EmailAccount } from "@db/schema";
+import type { EmailAccount } from "../../db/schema.js";
 
 // ─── SMTP Transporter Pool ───────────────────────────────────────
 const transporters = new Map<number, { transporter: Transporter; lastUsed: number }>();

@@ -1,6 +1,6 @@
 import { ImapFlow } from "imapflow";
 import { simpleParser } from "mailparser";
-import type { EmailAccount } from "@db/schema";
+import type { EmailAccount } from "../../db/schema.js";
 
 // ─── Connection Pool ─────────────────────────────────────────────
 const connections = new Map<number, { client: ImapFlow; lastUsed: number }>();

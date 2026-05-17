@@ -1,4 +1,4 @@
-<![CDATA[# ─── Dependencies ────────────────────────────────────────────────
+# ─── Dependencies ────────────────────────────────────────────────
 node_modules/
 .pnp
 .pnp.js
@@ -85,7 +85,5 @@ workbox-*.js
 .cache/
 .temp/
 .tmp/
-]]>
 
 %AppData%
-vercel.json

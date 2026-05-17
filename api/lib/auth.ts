@@ -1,10 +1,10 @@
 import * as jose from "jose";
 import * as cookie from "cookie";
-import { env } from "./env";
-import { getSessionCookieOptions } from "./cookies";
-import { Session } from "@contracts/constants";
-import { Errors } from "@contracts/errors";
-import { findUserById } from "../queries/users";
+import { env } from "./env.js";
+import { getSessionCookieOptions } from "./cookies.js";
+import { Session } from "../../contracts/constants.js";
+import { Errors } from "../../contracts/errors.js";
+import { findUserById } from "../queries/users.js";
 
 export type SessionPayload = {
   userId: number;

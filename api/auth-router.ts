@@ -2,13 +2,13 @@ import { z } from "zod";
 import * as cookie from "cookie";
 import { TRPCError } from "@trpc/server";
 import { ImapFlow } from "imapflow";
-import { Session } from "@contracts/constants";
-import { getSessionCookieOptions } from "./lib/cookies";
-import { createRouter, authedQuery, publicQuery } from "./middleware";
-import { signSessionToken } from "./lib/auth";
-import { upsertUserByEmail, findUserByEmail } from "./queries/users";
-import { getDb } from "./queries/connection";
-import { emailAccounts } from "@db/schema";
+import { Session } from "../contracts/constants.js";
+import { getSessionCookieOptions } from "./lib/cookies.js";
+import { createRouter, authedQuery, publicQuery } from "./middleware.js";
+import { signSessionToken } from "./lib/auth.js";
+import { upsertUserByEmail, findUserByEmail } from "./queries/users.js";
+import { getDb } from "./queries/connection.js";
+import { emailAccounts } from "../db/schema.js";
 import { eq, and } from "drizzle-orm";
 
 // ─── IMAP Connection Tester ──────────────────────────────────────

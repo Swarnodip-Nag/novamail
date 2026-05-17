@@ -1,10 +1,10 @@
 import { z } from "zod";
 import { eq, and } from "drizzle-orm";
-import { createRouter, publicQuery } from "../middleware";
-import { getDb } from "../queries/connection";
-import { emailAccounts } from "@db/schema";
-import { listFolders, getFolderStatus } from "../lib/imap-engine";
-import type { EmailAccount } from "@db/schema";
+import { createRouter, publicQuery } from "../middleware.js";
+import { getDb } from "../queries/connection.js";
+import { emailAccounts } from "../../db/schema.js";
+import { listFolders, getFolderStatus } from "../lib/imap-engine.js";
+import type { EmailAccount } from "../../db/schema.js";
 
 export const accountRouter = createRouter({
   // List all accounts for the current user

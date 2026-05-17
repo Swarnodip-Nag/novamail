@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { eq, and } from "drizzle-orm";
-import { createRouter, publicQuery } from "../middleware";
-import { getDb } from "../queries/connection";
-import { emailAccounts } from "@db/schema";
+import { createRouter, publicQuery } from "../middleware.js";
+import { getDb } from "../queries/connection.js";
+import { emailAccounts } from "../../db/schema.js";
 import {
   fetchEmails,
   fetchEmailByUid,
@@ -11,10 +11,10 @@ import {
   toggleStar,
   moveEmail,
   deleteEmail,
-} from "../lib/imap-engine";
-import { sendEmail } from "../lib/smtp-engine";
-import { summarizeEmail, generateReplyDraft, classifyPriority } from "../lib/ai-engine";
-import type { EmailAccount } from "@db/schema";
+} from "../lib/imap-engine.js";
+import { sendEmail } from "../lib/smtp-engine.js";
+import { summarizeEmail, generateReplyDraft, classifyPriority } from "../lib/ai-engine.js";
+import type { EmailAccount } from "../../db/schema.js";
 
 export const emailRouter = createRouter({
   // ─── Inbox ───────────────────────────────────────────────────
